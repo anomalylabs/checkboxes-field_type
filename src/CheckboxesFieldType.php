@@ -20,6 +20,36 @@ class CheckboxesFieldType extends FieldType
      */
     public function input()
     {
-        return app('form')->checkbox($this->getFieldName(), true, $this->getValue());
+        $output = '';
+
+        foreach (['test' => 'Test input!', 'test2' => 'Test input 2'] as $key => $value) {
+            $output .= '<label>' . app('form')->checkbox(
+                    $this->getFieldName(),
+                    $key,
+                    $this->getValue()
+                ) . '&nbsp;' . $value . '</label>';
+        }
+
+        return $output;
+    }
+
+    /**
+     * Get the field name.
+     *
+     * @return string
+     */
+    public function getFieldName()
+    {
+        return parent::getFieldName() . '[]';
+    }
+
+    public function onSet($value)
+    {
+        return json_encode($value);
+    }
+
+    public function onGet($value)
+    {
+        return json_decode($value);
     }
 }
