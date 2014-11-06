@@ -14,6 +14,13 @@ class CheckboxesFieldType extends FieldType
 {
 
     /**
+     * The field view.
+     *
+     * @var string
+     */
+    protected $view = 'field_type.checkboxes::element';
+
+    /**
      * Return the HTML options.
      *
      * @return mixed
@@ -43,11 +50,23 @@ class CheckboxesFieldType extends FieldType
         return parent::getFieldName() . '[]';
     }
 
+    /**
+     * When setting the value to the entry.
+     *
+     * @param $value
+     * @return string
+     */
     public function onSet($value)
     {
         return json_encode($value);
     }
 
+    /**
+     * When getting the value from the entry.
+     *
+     * @param $value
+     * @return mixed
+     */
     public function onGet($value)
     {
         return json_decode($value);
