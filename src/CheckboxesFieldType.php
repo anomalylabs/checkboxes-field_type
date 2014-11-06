@@ -56,9 +56,9 @@ class CheckboxesFieldType extends FieldType
      * @param $value
      * @return string
      */
-    public function onSet($value)
+    protected function onSet($value)
     {
-        return json_encode($value);
+        return json_encode((array)$value);
     }
 
     /**
@@ -67,7 +67,7 @@ class CheckboxesFieldType extends FieldType
      * @param $value
      * @return mixed
      */
-    public function onGet($value)
+    protected function onGet($value)
     {
         return json_decode($value);
     }
