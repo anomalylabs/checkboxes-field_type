@@ -2,15 +2,24 @@
 
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
+/**
+ * Class CheckboxesFieldType
+ *
+ * @link          http://anomaly.is/streams-platform
+ * @author        AnomalyLabs, Inc. <hello@anomaly.is>
+ * @author        Ryan Thompson <ryan@anomaly.is>
+ * @package       Anomaly\Streams\Addon\FieldType\Checkboxes
+ */
 class CheckboxesFieldType extends FieldType
 {
 
+    /**
+     * Return the HTML options.
+     *
+     * @return mixed
+     */
     public function input()
     {
-        $options = array(
-            'id' => $this->fieldName(),
-        );
-
-        return \Form::checkbox($this->fieldName(), true, $this->value, $options);
+        return app('form')->checkbox($this->getFieldName(), true, $this->getValue());
     }
 }
