@@ -30,7 +30,7 @@ class CheckboxesFieldType extends FieldType
         $output = '';
 
         foreach (['test' => 'Test input!', 'test2' => 'Test input 2'] as $key => $value) {
-            $output .= '<label>' . app('form')->checkbox(
+            $output .= '<label class="option">' . app('form')->checkbox(
                     $this->getFieldName(),
                     $key,
                     $this->getValue()
