@@ -27,17 +27,23 @@ class CheckboxesFieldType extends FieldType
      */
     public function input()
     {
-        $output = '';
+        $checkboxes = [];
 
-        foreach (['test' => 'Test input!', 'test2' => 'Test input 2'] as $key => $value) {
-            $output .= '<label class="option">' . app('form')->checkbox(
-                    $this->getFieldName(),
-                    $key,
-                    $this->getValue()
-                ) . '&nbsp;' . $value . '</label>';
+        $options = $this->getOptions();
+
+        foreach ($options as $value => $label) {
+
+            $input = app('form')->checkbox($this->getFieldName(), $value, $checked = null);
+
+            $checkboxes[] = compact('label', 'input');
         }
 
-        return $output;
+        return view('field_type.checkboxes::input', compact('checkboxes'));
+    }
+
+    protected function getOptions()
+    {
+        return [];
     }
 
     /**
