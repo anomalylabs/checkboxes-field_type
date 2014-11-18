@@ -1,8 +1,8 @@
-{{ checkboxes }}
+{{ options }}
 
 <label class="checkable">
-    {{{ input }}}
+    <input type="checkbox" value="{{ value }}" name="{{ .data.name }}" {{ checked then 'checked' }}>
     {{ label }}
 </label>
 
-{{ /checkboxes }}
+{{ /options }}

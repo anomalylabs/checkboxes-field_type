@@ -14,14 +14,11 @@ class CheckboxesFieldType extends FieldType
 {
 
     /**
-     * Get the field name.
+     * The input view.
      *
-     * @return string
+     * @var string
      */
-    public function getFieldName()
-    {
-        return parent::getFieldName() . '[]';
-    }
+    protected $inputView = 'field_type.checkboxes::input';
 
     /**
      * Serialize the value going into the model.
@@ -43,5 +40,63 @@ class CheckboxesFieldType extends FieldType
     public function unmutate($value)
     {
         return (array)unserialize($value);
+    }
+
+    /**
+     * Return options available.
+     *
+     * @return array
+     */
+    public function getOptions()
+    {
+        $checked = $this->getValue();
+
+        $options = $this->getConfig('options', []);
+
+        foreach ($options as $value => &$label) {
+
+            $options[$value] = [
+                'value'   => $value,
+                'label'   => trans($label),
+                'checked' => in_array($value, $checked),
+            ];
+        }
+
+        return $options;
+    }
+
+    /**
+     * Get the view data for the input view.
+     *
+     * @return array
+     */
+    public function getInputData()
+    {
+        $data = parent::getInputData();
+
+        $data['options'] = $this->getOptions();
+
+        return $data;
+    }
+
+
+    /**
+     * Get the field name.
+     *
+     * @return string
+     */
+    public function getFieldName()
+    {
+        return parent::getFieldName() . '[]';
+    }
+
+    /**
+     * Get the value. Assure it's an array.
+     *
+     * @return array
+     */
+    public function getValue()
+    {
+        return (array)parent::getValue();
     }
 }
