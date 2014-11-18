@@ -14,39 +14,6 @@ class CheckboxesFieldType extends FieldType
 {
 
     /**
-     * The field view.
-     *
-     * @var string
-     */
-    protected $view = 'field_type.checkboxes::element';
-
-    /**
-     * Return the HTML options.
-     *
-     * @return mixed
-     */
-    public function input()
-    {
-        $checkboxes = [];
-
-        $options = $this->getOptions();
-
-        foreach ($options as $value => $label) {
-
-            $input = app('form')->checkbox($this->getFieldName(), $value, $checked = null);
-
-            $checkboxes[] = compact('label', 'input');
-        }
-
-        return view('field_type.checkboxes::input', compact('checkboxes'));
-    }
-
-    protected function getOptions()
-    {
-        return [];
-    }
-
-    /**
      * Get the field name.
      *
      * @return string
@@ -57,24 +24,24 @@ class CheckboxesFieldType extends FieldType
     }
 
     /**
-     * When setting the value to the entry.
+     * Serialize the value going into the model.
      *
      * @param $value
      * @return string
      */
-    protected function onSet($value)
+    public function mutate($value)
     {
-        return json_encode((array)$value);
+        return serialize((array)$value);
     }
 
     /**
-     * When getting the value from the entry.
+     * Unserialize the value when accessing from the model.
      *
      * @param $value
-     * @return mixed
+     * @return array
      */
-    protected function onGet($value)
+    public function unmutate($value)
     {
-        return json_decode($value);
+        return (array)unserialize($value);
     }
 }
