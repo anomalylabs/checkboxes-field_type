@@ -1,6 +1,8 @@
+{{ asset.add group="streams.css" file="field_type.checkboxes::css/input.css" }}
+
 {{ options }}
 
-<label class="checkable">
+<label class="checkbox-label">
     <input type="checkbox" value="{{ value }}" name="{{ .data.name }}" {{ checked then 'checked' }}>
     {{ label }}
 </label>

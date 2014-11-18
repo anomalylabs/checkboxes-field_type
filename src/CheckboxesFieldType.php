@@ -21,6 +21,13 @@ class CheckboxesFieldType extends FieldType
     protected $inputView = 'field_type.checkboxes::input';
 
     /**
+     * The input wrapper view.
+     *
+     * @var string
+     */
+    protected $wrapperView = 'field_type.checkboxes::wrapper';
+
+    /**
      * Serialize the value going into the model.
      *
      * @param $value
