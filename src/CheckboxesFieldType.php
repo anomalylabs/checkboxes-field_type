@@ -65,7 +65,7 @@ class CheckboxesFieldType extends FieldType
     {
         $checked = $this->getValue();
 
-        $options = $this->getConfig('options', []);
+        $options = $this->pullConfig('options', []);
 
         foreach ($options as $value => &$label) {
 
