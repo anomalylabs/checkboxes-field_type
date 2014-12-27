@@ -1,0 +1,10 @@
+{{ add_asset("streams.css", "field_type.checkboxes::css/input.css") }}
+
+{% for option in options %}
+
+    <label class="checkbox-label">
+        <input type="checkbox" value="{{ option.value }}" name="{{ name }}" {{ option.checked ? 'checked' }}>
+        {{ option.label }}
+    </label>
+
+{% endfor %}
