@@ -1,4 +1,4 @@
-<?php namespace Anomaly\Streams\Addon\FieldType\Checkboxes;
+<?php namespace Anomaly\CheckboxesFieldType;
 
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
@@ -77,17 +77,6 @@ class CheckboxesFieldType extends FieldType
         }
 
         return $options;
-    }
-
-
-    /**
-     * Get the field name.
-     *
-     * @return string
-     */
-    public function getFieldName()
-    {
-        return parent::getFieldName() . '[]';
     }
 
     /**
