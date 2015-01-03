@@ -18,7 +18,7 @@ class CheckboxesFieldType extends FieldType
      *
      * @var string
      */
-    protected $inputView = 'field_type.checkboxes::input';
+    protected $inputView = 'anomaly.field_type.checkboxes::input';
 
     /**
      * Serialize the value going into the model.
