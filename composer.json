@@ -1,5 +1,5 @@
 {
-    "name": "anomaly/checkboxes-field-type",
+    "name": "anomaly/checkboxes-field_type",
     "type": "streams-addon",
     "description": "Checkboxes field type.",
     "authors": [
