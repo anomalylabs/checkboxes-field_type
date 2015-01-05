@@ -1,9 +1,14 @@
 {{ add_asset("streams.css", "anomaly.field_type.checkboxes::css/input.css") }}
 
-{% for option in options %}
+{% for option in field_type.options %}
 
     <label class="checkbox-label">
-        <input type="checkbox" value="{{ option.value }}" name="{{ name }}" {{ option.checked ? 'checked' }}>
+        <input
+                type="checkbox"
+                value="{{ option.value }}"
+                name="{{ field_type.getFieldName() }}"
+                {{ option.checked ? 'checked' }}
+                >
         {{ option.label }}
     </label>
 

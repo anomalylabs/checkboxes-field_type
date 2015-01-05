@@ -14,6 +14,13 @@ class CheckboxesFieldType extends FieldType
 {
 
     /**
+     * The database column type.
+     *
+     * @var string
+     */
+    public $columnType = 'text';
+
+    /**
      * The input view.
      *
      * @var string
@@ -43,20 +50,6 @@ class CheckboxesFieldType extends FieldType
     }
 
     /**
-     * Get the view data for the input view.
-     *
-     * @return array
-     */
-    public function getInputData()
-    {
-        $data = parent::getInputData();
-
-        $data['options'] = $this->getOptions();
-
-        return $data;
-    }
-
-    /**
      * Return options available.
      *
      * @return array
@@ -65,7 +58,7 @@ class CheckboxesFieldType extends FieldType
     {
         $checked = $this->getValue();
 
-        $options = $this->pullConfig('options', []);
+        $options = array_get($this->config, 'options', []);
 
         foreach ($options as $value => &$label) {
 
