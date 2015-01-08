@@ -2,5 +2,5 @@
 
 return [
     'name'        => 'Checkboxes',
-    'description' => 'Checkboxes field type.',
+    'description' => 'A checkboxes input field type.',
 ];

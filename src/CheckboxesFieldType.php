@@ -60,11 +60,11 @@ class CheckboxesFieldType extends FieldType
 
         $options = array_get($this->config, 'options', []);
 
-        foreach ($options as $value => &$label) {
+        foreach ($options as $value => $label) {
 
             $options[$value] = [
                 'value'   => $value,
-                'label'   => trans($label),
+                'label'   => $label,
                 'checked' => in_array($value, $checked),
             ];
         }
@@ -80,5 +80,15 @@ class CheckboxesFieldType extends FieldType
     public function getValue()
     {
         return (array)parent::getValue();
+    }
+
+    /**
+     * Get the field name.
+     *
+     * @return string
+     */
+    public function getFieldName()
+    {
+        return parent::getFieldName() . '[]';
     }
 }
