@@ -81,14 +81,4 @@ class CheckboxesFieldType extends FieldType
     {
         return (array)parent::getValue();
     }
-
-    /**
-     * Get the field name.
-     *
-     * @return string
-     */
-    public function getFieldName()
-    {
-        return parent::getFieldName() . '[]';
-    }
 }
