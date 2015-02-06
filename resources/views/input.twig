@@ -4,7 +4,7 @@
         <input
                 type="checkbox"
                 value="{{ option.value }}"
-                name="{{ field_type.getFieldName() }}[]"
+                name="{{ field_type.getInputName() }}[]"
                 {{ option.checked ? 'checked' }}
                 >
         {{ trans(option.label) }}
