@@ -28,28 +28,6 @@ class CheckboxesFieldType extends FieldType
     protected $inputView = 'anomaly.field_type.checkboxes::input';
 
     /**
-     * Serialize the value going into the model.
-     *
-     * @param $value
-     * @return string
-     */
-    public function mutate($value)
-    {
-        return serialize((array)$value);
-    }
-
-    /**
-     * Unserialize the value when accessing from the model.
-     *
-     * @param $value
-     * @return array
-     */
-    public function unmutate($value)
-    {
-        return (array)unserialize($value);
-    }
-
-    /**
      * Return options available.
      *
      * @return array
