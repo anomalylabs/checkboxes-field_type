@@ -34,29 +34,6 @@ class CheckboxesFieldType extends FieldType
      */
     public function getOptions()
     {
-        $checked = $this->getValue();
-
-        $options = array_get($this->config, 'options', []);
-
-        foreach ($options as $value => $label) {
-
-            $options[$value] = [
-                'value'   => $value,
-                'label'   => $label,
-                'checked' => in_array($value, $checked),
-            ];
-        }
-
-        return $options;
-    }
-
-    /**
-     * Get the value. Assure it's an array.
-     *
-     * @return array
-     */
-    public function getValue()
-    {
-        return (array)parent::getValue();
+        return array_get($this->config, 'options', []);
     }
 }
