@@ -1,13 +1,13 @@
 {% for value, option in field_type.options %}
 
-    <label class="control-label">
+    <div class="ui checkbox">
         <input
                 type="checkbox"
                 value="{{ value }}"
                 name="{{ field_type.getInputName() }}[]"
                 {{ value in field_type.value ? 'checked' }}
                 >
-        {{ trans(option) }}
-    </label>
+        <label>{{ trans(option) }}</label>
+    </div>
 
 {% endfor %}
