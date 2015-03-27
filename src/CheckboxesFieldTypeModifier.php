@@ -32,6 +32,6 @@ class CheckboxesFieldTypeModifier extends FieldTypeModifier
      */
     public function restore($value)
     {
-        return unserialize($value);
+        return (array)unserialize($value);
     }
 }
