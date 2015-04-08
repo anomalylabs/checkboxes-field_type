@@ -28,6 +28,13 @@ class CheckboxesFieldType extends FieldType
     protected $inputView = 'anomaly.field_type.checkboxes::input';
 
     /**
+     * The filter view.
+     *
+     * @var string
+     */
+    protected $filterView = 'anomaly.field_type.checkboxes::filter';
+
+    /**
      * Return options available.
      *
      * @return array
