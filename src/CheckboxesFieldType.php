@@ -56,7 +56,7 @@ class CheckboxesFieldType extends FieldType
         $values = array_filter(
             array_map(
                 function ($key) {
-                    return array_get($this->getOptions(), $key);
+                    return trans(array_get($this->getOptions(), $key));
                 },
                 $keys
             )
