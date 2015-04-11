@@ -43,4 +43,25 @@ class CheckboxesFieldType extends FieldType
     {
         return array_get($this->config, 'options', []);
     }
+
+    /**
+     * Get the value.
+     *
+     * @return array
+     */
+    public function getValue()
+    {
+        $keys = parent::getValue();
+
+        $values = array_filter(
+            array_map(
+                function ($key) {
+                    return array_get($this->getOptions(), $key);
+                },
+                $keys
+            )
+        );
+
+        return array_combine($keys, $values);
+    }
 }
