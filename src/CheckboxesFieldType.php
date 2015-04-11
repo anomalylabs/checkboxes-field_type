@@ -53,6 +53,10 @@ class CheckboxesFieldType extends FieldType
     {
         $keys = parent::getValue();
 
+        if (!$keys || is_string($keys)) {
+            return $keys;
+        }
+
         $values = array_filter(
             array_map(
                 function ($key) {
