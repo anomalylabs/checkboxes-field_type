@@ -35,38 +35,19 @@ class CheckboxesFieldType extends FieldType
     protected $filterView = 'anomaly.field_type.checkboxes::filter';
 
     /**
-     * Return options available.
+     * The default options handler.
+     *
+     * @var string
+     */
+    protected $options = 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle';
+
+    /**
+     * Get the dropdown options.
      *
      * @return array
      */
     public function getOptions()
     {
-        return array_get($this->config, 'options', []);
-    }
-
-    /**
-     * Get the value.
-     *
-     * @return array
-     */
-    public function getValue()
-    {
-        $keys = parent::getValue();
-
-        // String value when filtering.
-        if (!$keys || is_string($keys)) {
-            return $keys;
-        }
-
-        $values = array_filter(
-            array_map(
-                function ($key) {
-                    return trans(array_get($this->getOptions(), $key));
-                },
-                $keys
-            )
-        );
-
-        return array_combine($keys, $values);
+        return app()->call(array_get($this->config, 'handler', $this->options), ['fieldType' => $this]);
     }
 }
