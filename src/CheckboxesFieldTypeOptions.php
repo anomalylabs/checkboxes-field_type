@@ -1,5 +1,8 @@
 <?php namespace Anomaly\CheckboxesFieldType;
 
+use Anomaly\CheckboxesFieldType\Command\ParseOptions;
+use Illuminate\Foundation\Bus\DispatchesCommands;
+
 /**
  * Class CheckboxesFieldTypeOptions
  *
@@ -11,6 +14,8 @@
 class CheckboxesFieldTypeOptions
 {
 
+    use DispatchesCommands;
+
     /**
      * Handle the select options.
      *
@@ -19,6 +24,12 @@ class CheckboxesFieldTypeOptions
      */
     public function handle(CheckboxesFieldType $fieldType)
     {
-        return array_get($fieldType->getConfig(), 'options', []);
+        $options = array_get($fieldType->getConfig(), 'options', []);
+
+        if (is_string($options)) {
+            $options = $this->dispatch(new ParseOptions($options));
+        }
+
+        return $options;
     }
 }
