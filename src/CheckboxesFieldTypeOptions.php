@@ -1,7 +1,7 @@
 <?php namespace Anomaly\CheckboxesFieldType;
 
 use Anomaly\CheckboxesFieldType\Command\ParseOptions;
-use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class CheckboxesFieldTypeOptions
@@ -14,7 +14,7 @@ use Illuminate\Foundation\Bus\DispatchesCommands;
 class CheckboxesFieldTypeOptions
 {
 
-    use DispatchesCommands;
+    use DispatchesJobs;
 
     /**
      * Handle the select options.
