@@ -42,7 +42,7 @@ class CheckboxesFieldTypePresenter extends FieldTypePresenter
     }
 
     /**
-     * Return the option array.
+     * Return the selections array.
      *
      * @return array
      */
