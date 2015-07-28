@@ -20,7 +20,6 @@ class CheckboxesFieldTypeOptions
      * Handle the select options.
      *
      * @param CheckboxesFieldType $fieldType
-     * @return array
      */
     public function handle(CheckboxesFieldType $fieldType)
     {
@@ -30,6 +29,6 @@ class CheckboxesFieldTypeOptions
             $options = $this->dispatch(new ParseOptions($options));
         }
 
-        return $options;
+        $fieldType->setOptions($options);
     }
 }

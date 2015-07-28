@@ -8,14 +8,14 @@ return [
     ],
     'min'           => [
         'label'        => 'Minimum Selections',
-        'instructions' => 'Enter the minimum number of allowed selections if any.'
+        'instructions' => 'Enter the minimum number of allowed selections.'
     ],
     'max'           => [
         'label'        => 'Maximum Selections',
-        'instructions' => 'Enter the maximum number of allowed selections if any.'
+        'instructions' => 'Enter the maximum number of allowed selections.'
     ],
     'default_value' => [
         'label'        => 'Default Value',
-        'instructions' => 'Enter default selections if any.'
+        'instructions' => 'Enter the default selections.'
     ]
 ];

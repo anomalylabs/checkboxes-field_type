@@ -1,5 +1,6 @@
 <?php namespace Anomaly\CheckboxesFieldType;
 
+use Anomaly\CheckboxesFieldType\Command\BuildOptions;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
 /**
@@ -44,13 +45,46 @@ class CheckboxesFieldType extends FieldType
     ];
 
     /**
+     * The field type config.
+     *
+     * @var array
+     */
+    protected $config = [
+        'handler' => 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle'
+    ];
+
+    /**
+     * The checkboxes options.
+     *
+     * @var null
+     */
+    protected $options = null;
+
+    /**
      * Get the dropdown options.
      *
      * @return array
      */
     public function getOptions()
     {
-        return app()->call('Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle', ['fieldType' => $this]);
+        if ($this->options === null) {
+            $this->dispatch(new BuildOptions($this));
+        }
+
+        return $this->options;
+    }
+
+    /**
+     * Set the options.
+     *
+     * @param array $options
+     * @return $this
+     */
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
+
+        return $this;
     }
 
     /**

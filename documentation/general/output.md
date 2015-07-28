@@ -10,10 +10,10 @@ Return the option keys as an array.
 
 ```
 // Twig Usage
-{{ entry.example.keys }}
+{{ entry.example.keys|join(', ') }} // Outputs key1, key2, key3
 
 // API Usage
-$entry->example->keys();
+implode(', ', $entry->example->keys()); // Outputs key1, key2, key3
 ```
 
 ### `values`
@@ -22,10 +22,10 @@ Return the option values as an array.
 
 ```
 // Twig Usage
-{{ entry.example.keys }}
+{{ entry.example.values|join(', ') }} // Outputs Value 1, Value 2, Value 3
 
 // API Usage
-$entry->example->keys();
+implode(', ', $entry->example->values()); // Outputs Value 1, Value 2, Value 3
 ```
 
 ### `selections`
@@ -34,8 +34,12 @@ Return the selections array.
 
 ```
 // Twig Usage
-{{ entry.example.selections }}
+{% for key, value in entry.example.selections %}
+	{{ key }} = {{ value }} // Outputs key1 = Value 1
+{% endfor %}
 
 // API Usage
-$entry->example->selections();
+foreach ($entry->example->selections() as $key => $value) {
+	echo "{$key} = {$value}"; // Outputs key1 = Value 1
+}
 ```
