@@ -1,10 +1,10 @@
 # Output
 
-**Examples:**
+This field type returns an array of selected values by default.
 
 ### `keys`
 
-Return the option keys as an array.
+Return the option keys as an array. In most cases this is the same as the default output.
 
 ```
 // Twig Usage
