@@ -12,9 +12,11 @@ protected $fields = [
                 'key2' => 'Key 2',
                 'key3' => 'Key 3'
             ],
-            'min'           => null,
-            'max'           => null,
-            'default_value' => null,
+            'min'           => 1,
+            'max'           => 2,
+            'default_value' => [
+                'key2'
+            ],
             'handler'       => 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle'
         ]
     ]
