@@ -19,4 +19,4 @@ protected $fields = [
 
 ### `options`
 
-The options for the checkboxes.
+The options for the checkboxes. Any valid array or valid YAML string can be used.
