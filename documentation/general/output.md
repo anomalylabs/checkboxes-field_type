@@ -10,7 +10,7 @@ Return the option keys as an array. In most cases this is the same as the defaul
 // Twig Usage
 {{ entry.example.keys|join(', ') }} // Outputs key1, key2, key3
 
-// API Usage
+// API usage
 implode(', ', $entry->example->keys()); // Outputs key1, key2, key3
 ```
 
@@ -22,7 +22,7 @@ Return the option values as an array.
 // Twig Usage
 {{ entry.example.values|join(', ') }} // Outputs Value 1, Value 2, Value 3
 
-// API Usage
+// API usage
 implode(', ', $entry->example->values()); // Outputs Value 1, Value 2, Value 3
 ```
 
@@ -36,7 +36,7 @@ Return the selections array.
 	{{ key }} = {{ value }} // Outputs key1 = Value 1
 {% endfor %}
 
-// API Usage
+// API usage
 foreach ($entry->example->selections() as $key => $value) {
 	echo "{$key} = {$value}"; // Outputs key1 = Value 1
 }
