@@ -8,9 +8,9 @@ protected $fields = [
         'type'   => 'anomaly.field_type.checkboxes',
         'config' => [
             'options' => [
-                'key1' => 'Key 1',
-                'key2' => 'Key 2',
-                'key3' => 'Key 3'
+                'key1' => 'Value 1',
+                'key2' => 'Value 2',
+                'key3' => 'Value 3'
             ],
             'min'           => 1,
             'max'           => 2,
