@@ -67,9 +67,9 @@ The handler is responsible for setting the available options on the field type i
 
 This field type returns an array of selected key values by default.
 
-### `keys`
+### `keys()`
 
-Return the option keys as an array. In most cases this is the same as the default output.
+Returns the option keys as an array. In most cases this is the same as the default output.
 
     // Twig usage
     {{ entry.example.keys|join(', ') }} // Outputs key1, key2, key3
@@ -77,9 +77,9 @@ Return the option keys as an array. In most cases this is the same as the defaul
     // API usage
     implode(', ', $entry->example->keys()); // Outputs key1, key2, key3
 
-### `values`
+### `values()`
 
-Return the option values as an array.
+Returns the option values as an array.
 
     // Twig usage
     {{ entry.example.values|join(', ') }} // Outputs Value 1, Value 2, Value 3
@@ -87,9 +87,9 @@ Return the option values as an array.
     // API usage
     implode(', ', $entry->example->values()); // Outputs Value 1, Value 2, Value 3
 
-### `selections`
+### `selections()`
 
-Return the selections array.
+Returns the selections array.
 
     // Twig usage
     {% for key, value in entry.example.selections %}
