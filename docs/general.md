@@ -37,23 +37,23 @@ The checkboxes field type provides multiple checkbox inputs.
         ]
     ];
 
-##### `options`
+### `options`
 
 The options for the checkboxes. Any valid array or valid YAML string can be used.
 
-##### `min`
+### `min`
 
 The minimum number of allowed selections. By default no minimum is enforced.
 
-##### `max`
+### `max`
 
 The maximum number of allowed selections. By default no maximum is enforced.
 
-##### `default_value`
+### `default_value`
 
 The default selections. Any valid array of keys/values can be used. By default there is no default value.
 
-##### `handler`
+### `handler`
 
 The options handler callable string. Any valid callable class string can be used. The default value is `'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle'`.
 
@@ -67,7 +67,7 @@ The handler is responsible for setting the available options on the field type i
 
 This field type returns an array of selected key values by default.
 
-#### `keys`
+### `keys`
 
 Return the option keys as an array. In most cases this is the same as the default output.
 
@@ -77,7 +77,7 @@ Return the option keys as an array. In most cases this is the same as the defaul
     // API usage
     implode(', ', $entry->example->keys()); // Outputs key1, key2, key3
 
-#### `values`
+### `values`
 
 Return the option values as an array.
 
@@ -87,7 +87,7 @@ Return the option values as an array.
     // API usage
     implode(', ', $entry->example->values()); // Outputs Value 1, Value 2, Value 3
 
-#### `selections`
+### `selections`
 
 Return the selections array.
 
