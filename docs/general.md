@@ -1,4 +1,4 @@
-# Boolean Field Type
+# Checkboxes Field Type
 
 - [Introduction](#introduction)
 - [Configuration](#configuration)
