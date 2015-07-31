@@ -42,7 +42,11 @@ class ParseOptions implements SelfHandling
         foreach (explode("\n", $this->options) as $option) {
 
             // Split on the first ":"
-            $option = explode(':', $option, 2);
+            if (str_is('*:*', $option)) {
+                $option = explode(':', $option, 2);
+            } else {
+                $option = [$option, $option];
+            }
 
             $key   = array_shift($option);
             $value = $option ? array_shift($option) : $key;
