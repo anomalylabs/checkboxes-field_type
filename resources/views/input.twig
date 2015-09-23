@@ -5,7 +5,8 @@
                 type="checkbox"
                 value="{{ value }}"
                 name="{{ field_type.input_name }}[]"
-                {{ value in field_type.value ? 'checked' }}>
+                {{ value in field_type.value ? 'checked' }}
+                {{ field_type.required ? 'required' }}>
 
         {{ trans(option) }}
     </label>
