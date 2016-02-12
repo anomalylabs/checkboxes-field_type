@@ -1,13 +1,19 @@
-{% for value, option in field_type.options %}
+<div class="c-inputs-stacked">
 
-    <label>
-        <input
-                type="checkbox"
-                value="{{ value }}"
-                name="{{ field_type.input_name }}[]"
-                {{ value in field_type.value ? 'checked' }}>
+    {% for value, option in field_type.options %}
 
-        {{ trans(option) }}
-    </label>
+        <label class="c-input c-checkbox">
+            <input
+                    type="checkbox"
+                    value="{{ value }}"
+                    name="{{ field_type.input_name }}[]"
+                    {{ value in field_type.value ? 'checked' }}>
 
-{% endfor %}
+            <span class="c-indicator"></span>
+
+            {{ trans(option) }}
+        </label>
+
+    {% endfor %}
+
+</div>
