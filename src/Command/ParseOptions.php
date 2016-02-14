@@ -51,7 +51,7 @@ class ParseOptions implements SelfHandling
             $key   = array_shift($option);
             $value = $option ? array_shift($option) : $key;
 
-            $options[$key] = ltrim(trim($value));
+            $options[ltrim(trim($key, "\r\n"), "\r\n")] = ltrim(trim($value, "\r\n"), "\r\n");
         }
 
         return $options;
