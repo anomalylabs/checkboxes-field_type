@@ -1,13 +1,14 @@
 <?php namespace Anomaly\CheckboxesFieldType;
 
+use Anomaly\CheckboxesFieldType\Command\BuildOptions;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
 /**
  * Class CheckboxesFieldType
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\Streams\Addon\FieldType\Checkboxes
  */
 class CheckboxesFieldType extends FieldType
@@ -44,13 +45,46 @@ class CheckboxesFieldType extends FieldType
     ];
 
     /**
+     * The field type config.
+     *
+     * @var array
+     */
+    protected $config = [
+        'handler' => 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle'
+    ];
+
+    /**
+     * The checkboxes options.
+     *
+     * @var null
+     */
+    protected $options = null;
+
+    /**
      * Get the dropdown options.
      *
      * @return array
      */
     public function getOptions()
     {
-        return app()->call('Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle', ['fieldType' => $this]);
+        if ($this->options === null) {
+            $this->dispatch(new BuildOptions($this));
+        }
+
+        return $this->options;
+    }
+
+    /**
+     * Set the options.
+     *
+     * @param array $options
+     * @return $this
+     */
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
+
+        return $this;
     }
 
     /**

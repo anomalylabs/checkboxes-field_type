@@ -5,9 +5,9 @@ use Illuminate\Contracts\Bus\SelfHandling;
 /**
  * Class ParseOptions
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\CheckboxesFieldType\Command
  */
 class ParseOptions implements SelfHandling
@@ -42,12 +42,16 @@ class ParseOptions implements SelfHandling
         foreach (explode("\n", $this->options) as $option) {
 
             // Split on the first ":"
-            $option = explode(':', $option, 2);
+            if (str_is('*:*', $option)) {
+                $option = explode(':', $option, 2);
+            } else {
+                $option = [$option, $option];
+            }
 
             $key   = array_shift($option);
             $value = $option ? array_shift($option) : $key;
 
-            $options[$key] = ltrim(trim($value));
+            $options[ltrim(trim($key, "\r\n"), "\r\n")] = ltrim(trim($value, "\r\n"), "\r\n");
         }
 
         return $options;
