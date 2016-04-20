@@ -50,7 +50,8 @@ class CheckboxesFieldType extends FieldType
      * @var array
      */
     protected $config = [
-        'handler' => 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle'
+        'options' => null,
+        'handler' => 'Anomaly\CheckboxesFieldType\Handler\DefaultHandler@handle'
     ];
 
     /**

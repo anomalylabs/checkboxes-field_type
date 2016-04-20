@@ -39,7 +39,7 @@ class CheckboxesFieldTypeModifier extends FieldTypeModifier
         if (is_array($value)) {
             return $value;
         }
-        
+
         return (array)unserialize($value);
     }
 }
