@@ -11,11 +11,11 @@
 
 You must set the checkboxes field type value with a key or keys from the available options.
 
-{{ code('php', '$entry->example = "foo";') }}
+    $entry->example = "foo";
 
 You can set multiple values with an array.
 
-{{ code('php', '$entry->example = ["foo", "bar"];') }}
+    $entry->example = ["foo", "bar"];
 
 <hr>
 
@@ -24,9 +24,7 @@ You can set multiple values with an array.
 
 The addon field type returns an array of value keys.
 
-{% code php %}
-$entry->example; // ["foo", "bar"]
-{% endcode %}
+    $entry->example; // ["foo", "bar"]
 
 <hr>
 
@@ -39,21 +37,15 @@ When accessing the value from a decorated entry, like one in a view, the checkbo
 
 Return the selected values in `key => value` format.
 
-{% code php %}
-$entry->example->selections(); // ["foo" => "FOO", "bar" => "BAR"]
-{% endcode %}
+    $entry->example->selections(); // ["foo" => "FOO", "bar" => "BAR"]
 
 #### Keys
 
 Return the selected value keys only.
 
-{% code php %}
-$entry->example->keys(); // ["foo", "bar"]
-{% endcode %}
+    $entry->example->keys(); // ["foo", "bar"]
 
 #### Values
 To return the selected value strings only, use the `values` method.
 
-{% code php %}
-$entry->example->values(); // ["FOO", "BAR"]
-{% endcode %}
+    $entry->example->values(); // ["FOO", "BAR"]

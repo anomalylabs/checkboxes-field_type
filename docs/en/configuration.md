@@ -9,7 +9,6 @@
 
 Below is the full configuration available with defaults.
 
-    {% code php %}
     protected $fields = [
         "example" => [
             "type"   => "anomaly.field_type.checkboxes",
@@ -20,7 +19,6 @@ Below is the full configuration available with defaults.
             ]
         ]
     ];
-    {% endcode %}
 
 <hr>
 
@@ -29,19 +27,18 @@ Below is the full configuration available with defaults.
 
 ### Default Value
 
-{{ code('php', '"default_type" => false') }}
+    "default_type" => false
 
 The `default_value` is a core option. This field type accepts any key from the options.
 
 ### Checkbox Options
 
 You can set the available options as an array of key => value pairs.
-{% code php %}
-"options" => [
-    "foo" => "FOO",
-    "bar" => "BAR"
-]
-{% endcode %}
+
+    "options" => [
+        "foo" => "FOO",
+        "bar" => "BAR"
+    ]
 
 <hr>
 
@@ -50,14 +47,12 @@ You can set the available options as an array of key => value pairs.
 
 Checkbox options can be organized into groups by nesting the options into keyed groups. The _key_ is translated into the group label.
 
-{% code php %}
-"options" => [
-    "module::message.examples" => [
-        "foo" => "FOO",
-        "bar" => "BAR"
+    "options" => [
+        "module::message.examples" => [
+            "foo" => "FOO",
+            "bar" => "BAR"
+        ]
     ]
-]
-{% endcode %}
 
 <hr>
 
@@ -70,7 +65,7 @@ Option handlers are responsible for setting the available options on the field t
 
 Custom handlers can be defined as a callable string.
 
-{{ code('php', '"handler" => "App/Example/MyOptions@handle"') }}
+    "handler" => "App/Example/MyOptions@handle"
 
 You can also define custom handlers as a closure.
 
@@ -78,7 +73,6 @@ You can also define custom handlers as a closure.
 <strong>Remember:</strong> Closures can not be stored in the database so you need to define closures in the form builder.
 </div>
 
-    {% code php %}
     protected $fields = [
         "example" => [
             "config" => [
@@ -93,17 +87,19 @@ You can also define custom handlers as a closure.
             ]
         ]
     ];
-    {% endcode %}
 
 ### Building Custom Handlers
 
 Building custom option handlers could not be easier. Simply create the class with the method you defined in the config option.
 
-{{ code('php', '"handler" => "App/Example/MyOptions@handle"') }}
+    "handler" => "App/Example/MyOptions@handle"
 
-The callable string is called via Laravel's service container. The {{ code('php', '$fieldType') }} is passed as an argument.
+The callable string is called via Laravel's service container. The `FieldType $fieldType` is passed as an argument.
 
-    {% code php %}
+<div class="alert alert-primary">
+<strong>Note:</strong> Because handlers are called through Laravel's service container, you can automatically inject dependencies into the construct and method.
+</div>
+
     class MyOptions
     {
         public function handle(CheckboxesFieldType $fieldType)
@@ -116,4 +112,3 @@ The callable string is called via Laravel's service container. The {{ code('php'
             );
         }
     }
-    {% endcode %}
