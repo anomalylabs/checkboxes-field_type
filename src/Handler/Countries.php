@@ -18,18 +18,18 @@ class Countries
      * Handle the options.
      *
      * @param CheckboxesFieldType $fieldType
-     * @param Repository    $config
+     * @param Repository          $config
      */
     public function handle(CheckboxesFieldType $fieldType, Repository $config)
     {
         $fieldType->setOptions(
             array_combine(
-                array_keys($config->get('streams::countries')),
+                array_keys($config->get('streams::countries.available')),
                 array_map(
                     function ($country) {
                         return $country['name'];
                     },
-                    $config->get('streams::countries')
+                    $config->get('streams::countries.available')
                 )
             )
         );

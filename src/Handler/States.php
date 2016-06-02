@@ -28,9 +28,9 @@ class States
 
         foreach ($countries as $code) {
 
-            $country = $config->get('streams::countries.' . $code);
+            $country = $config->get('streams::countries.' . $code . '.available');
 
-            if ($states = $config->get('streams::states/' . $code)) {
+            if ($states = $config->get('streams::states/' . $code . '.available')) {
                 $options[$country['name']] = array_combine(
                     array_keys($states),
                     array_map(
