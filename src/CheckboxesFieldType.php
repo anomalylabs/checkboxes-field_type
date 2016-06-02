@@ -26,7 +26,7 @@ class CheckboxesFieldType extends FieldType
      *
      * @var string
      */
-    protected $inputView = 'anomaly.field_type.checkboxes::input';
+    protected $inputView = null;
 
     /**
      * The filter view.
@@ -150,6 +150,10 @@ class CheckboxesFieldType extends FieldType
      */
     public function getInputView()
     {
+        if ($this->inputView) {
+            return $this->inputView;
+        }
+
         return 'anomaly.field_type.checkboxes::' . $this->config('mode', 'checkboxes');
     }
 }
