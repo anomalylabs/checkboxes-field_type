@@ -45,13 +45,22 @@ class CheckboxesFieldType extends FieldType
     ];
 
     /**
+     * The option handlers.
+     *
+     * @var array
+     */
+    protected $handlers = [
+        'countries' => 'Anomaly\CheckboxesFieldType\Handler\Countries'
+    ];
+
+    /**
      * The field type config.
      *
      * @var array
      */
     protected $config = [
         'options' => null,
-        'handler' => 'Anomaly\CheckboxesFieldType\Handler\DefaultHandler@handle'
+        'handler' => 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle'
     ];
 
     /**
@@ -86,6 +95,16 @@ class CheckboxesFieldType extends FieldType
         $this->options = $options;
 
         return $this;
+    }
+
+    /**
+     * Get the handlers.
+     *
+     * @return array
+     */
+    public function getHandlers()
+    {
+        return $this->handlers;
     }
 
     /**

@@ -1,20 +1,19 @@
-<?php namespace Anomaly\CheckboxesFieldType\Handler;
+<?php namespace Anomaly\CheckboxesFieldType;
 
-use Anomaly\CheckboxesFieldType\CheckboxesFieldType;
 use Anomaly\CheckboxesFieldType\Command\ParseOptions;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Collection;
 
 /**
- * Class DefaultHandler
+ * Class CheckboxesFieldTypeOptions
  *
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\CheckboxesFieldType\Handler
+ * @package       Anomaly\CheckboxesFieldType
  */
-class DefaultHandler
+class CheckboxesFieldTypeOptions
 {
 
     use DispatchesJobs;
