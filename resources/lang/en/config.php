@@ -1,6 +1,13 @@
 <?php
 
 return [
+    'mode'          => [
+        'label'  => 'Input Mode',
+        'option' => [
+            'checkboxes' => 'Checkboxes',
+            'tags'       => 'Tags',
+        ]
+    ],
     'options'       => [
         'label'        => 'Options',
         'instructions' => 'Enter options below in a <strong>key: Value</strong> or <strong>Value</strong> only format. Enter each option on a new line.',

@@ -18,7 +18,7 @@ class Countries
      * Handle the options.
      *
      * @param CheckboxesFieldType $fieldType
-     * @param Repository          $config
+     * @param Repository    $config
      */
     public function handle(CheckboxesFieldType $fieldType, Repository $config)
     {

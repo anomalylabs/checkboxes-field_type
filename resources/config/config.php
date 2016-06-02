@@ -1,6 +1,16 @@
 <?php
 
 return [
+    'mode'          => [
+        'required' => true,
+        'type'     => 'anomaly.field_type.select',
+        'config'   => [
+            'options' => [
+                'checkboxes' => 'anomaly.field_type.checkboxes::config.mode.option.checkboxes',
+                'tags'       => 'anomaly.field_type.checkboxes::config.mode.option.tags',
+            ]
+        ]
+    ],
     'options'       => [
         'required' => true,
         'type'     => 'anomaly.field_type.textarea'

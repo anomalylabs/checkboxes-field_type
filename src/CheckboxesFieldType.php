@@ -50,7 +50,8 @@ class CheckboxesFieldType extends FieldType
      * @var array
      */
     protected $handlers = [
-        'countries' => 'Anomaly\CheckboxesFieldType\Handler\Countries'
+        'states'    => 'Anomaly\CheckboxesFieldType\Handler\states',
+        'countries' => 'Anomaly\CheckboxesFieldType\Handler\Countries',
     ];
 
     /**
@@ -60,6 +61,7 @@ class CheckboxesFieldType extends FieldType
      */
     protected $config = [
         'options' => null,
+        'mode'    => 'checkboxes',
         'handler' => 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle'
     ];
 
@@ -139,5 +141,15 @@ class CheckboxesFieldType extends FieldType
         }
 
         return $required;
+    }
+
+    /**
+     * Return the input view.
+     *
+     * @return string
+     */
+    public function getInputView()
+    {
+        return 'anomaly.field_type.checkboxes::' . $this->config('mode', 'checkboxes');
     }
 }
