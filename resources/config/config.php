@@ -2,9 +2,10 @@
 
 return [
     'mode'          => [
-        'required' => true,
-        'type'     => 'anomaly.field_type.select',
-        'config'   => [
+        'required'    => true,
+        'placeholder' => false,
+        'type'        => 'anomaly.field_type.select',
+        'config'      => [
             'options' => [
                 'checkboxes' => 'anomaly.field_type.checkboxes::config.mode.option.checkboxes',
                 'tags'       => 'anomaly.field_type.checkboxes::config.mode.option.tags',
