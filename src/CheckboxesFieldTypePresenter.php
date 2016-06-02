@@ -22,6 +22,26 @@ class CheckboxesFieldTypePresenter extends FieldTypePresenter
     protected $object;
 
     /**
+     * Return the number of selections.
+     *
+     * @return int
+     */
+    public function count()
+    {
+        return count($this->values());
+    }
+
+    /**
+     * Return the number of options.
+     *
+     * @return int
+     */
+    public function total()
+    {
+        return count($this->object->getOptions());
+    }
+
+    /**
      * Return the option keys.
      *
      * @return array

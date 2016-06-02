@@ -49,3 +49,13 @@ Return the selected value keys only.
 To return the selected value strings only, use the `values` method.
 
     $entry->example->values(); // ["FOO", "BAR"]
+    
+#### Count
+To return the number of selected options, use the `count` method.
+
+    $entry->example->count(); // 2
+
+#### Total
+To return the total number of available options, use the `total` method.
+
+    $entry->example->total(); // 2
