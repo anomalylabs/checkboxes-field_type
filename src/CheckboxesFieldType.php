@@ -50,7 +50,7 @@ class CheckboxesFieldType extends FieldType
      * @var array
      */
     protected $handlers = [
-        'states'    => 'Anomaly\CheckboxesFieldType\Handler\states',
+        'states'    => 'Anomaly\CheckboxesFieldType\Handler\States',
         'countries' => 'Anomaly\CheckboxesFieldType\Handler\Countries',
     ];
 
