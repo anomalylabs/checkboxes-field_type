@@ -4,7 +4,7 @@ return [
     'options'       => [
         'label'        => 'Optionen',
         'instructions' => 'Geben Sie die Optionen nur im Format <strong>key: Value</strong> oder <strong>Value</strong> ein. Jede Option muss in einer eigenen Zeile stehen.',
-        'placeholder'  => "foo: Foo\nbar: Bar\nBaz"
+        'placeholder'  => 'key: Value'
     ],
     'min'           => [
         'label'        => 'Mindestauswahl',
