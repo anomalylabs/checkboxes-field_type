@@ -5,17 +5,8 @@ use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Collection;
 
-/**
- * Class CheckboxesFieldTypeOptions
- *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\CheckboxesFieldType
- */
 class CheckboxesFieldTypeOptions
 {
-
     use DispatchesJobs;
 
     /**
@@ -36,14 +27,13 @@ class CheckboxesFieldTypeOptions
         }
 
         if ($options instanceof Collection && is_object($first = $options->first())) {
-
             if ($first instanceof EntryInterface) {
                 $value = $first->getTitleName();
             } else {
                 $value = 'id';
             }
 
-            $options = $options->lists($value, 'id');
+            $options = $options->pluck($value, 'id');
         }
 
         if ($options instanceof Collection && is_string($options->first())) {
