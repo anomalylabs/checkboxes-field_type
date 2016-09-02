@@ -21,17 +21,11 @@ return [
         'config' => [
             'min' => 1,
         ],
-        'rules' => [
-            'nullable',
-        ],
     ],
     'max'           => [
         'type'   => 'anomaly.field_type.integer',
         'config' => [
             'min' => 1,
-        ],
-        'rules' => [
-            'nullable',
         ],
     ],
     'default_value' => [
