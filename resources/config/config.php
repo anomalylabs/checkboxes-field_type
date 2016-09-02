@@ -30,6 +30,9 @@ return [
         'config' => [
             'min' => 1,
         ],
+        'rules' => [
+            'nullable',
+        ],
     ],
     'default_value' => [
         'type' => 'anomaly.field_type.tags',
