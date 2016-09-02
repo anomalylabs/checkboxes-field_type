@@ -9,26 +9,29 @@ return [
             'options' => [
                 'checkboxes' => 'anomaly.field_type.checkboxes::config.mode.option.checkboxes',
                 'tags'       => 'anomaly.field_type.checkboxes::config.mode.option.tags',
-            ]
-        ]
+            ],
+        ],
     ],
     'options'       => [
         'required' => true,
-        'type'     => 'anomaly.field_type.textarea'
+        'type'     => 'anomaly.field_type.textarea',
     ],
     'min'           => [
         'type'   => 'anomaly.field_type.integer',
         'config' => [
-            'min' => 1
-        ]
+            'min' => 1,
+        ],
+        'rules' => [
+            'nullable',
+        ],
     ],
     'max'           => [
         'type'   => 'anomaly.field_type.integer',
         'config' => [
-            'min' => 1
-        ]
+            'min' => 1,
+        ],
     ],
     'default_value' => [
-        'type' => 'anomaly.field_type.tags'
-    ]
+        'type' => 'anomaly.field_type.tags',
+    ],
 ];
