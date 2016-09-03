@@ -2,17 +2,8 @@
 
 use Anomaly\CheckboxesFieldType\CheckboxesFieldType;
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Bus\SelfHandling;
 
-/**
- * Class BuildOptions
- *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\CheckboxesFieldType\Command
- */
-class BuildOptions implements SelfHandling
+class BuildOptions
 {
 
     /**
@@ -27,7 +18,7 @@ class BuildOptions implements SelfHandling
      *
      * @param CheckboxesFieldType $fieldType
      */
-    function __construct(CheckboxesFieldType $fieldType)
+    public function __construct(CheckboxesFieldType $fieldType)
     {
         $this->fieldType = $fieldType;
     }

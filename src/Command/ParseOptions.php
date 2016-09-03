@@ -1,16 +1,6 @@
 <?php namespace Anomaly\CheckboxesFieldType\Command;
 
-use Illuminate\Contracts\Bus\SelfHandling;
-
-/**
- * Class ParseOptions
- *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\CheckboxesFieldType\Command
- */
-class ParseOptions implements SelfHandling
+class ParseOptions
 {
 
     /**
