@@ -1,4 +1,4 @@
-<div class="c-inputs-stacked">
+<div class="custom-inputs-stacked">
 
     {% for value, option in field_type.options %}
 
@@ -6,7 +6,7 @@
             <p>{{ trans(value) }}</p>
 
             {% for value, option in option %}
-                <label class="c-input c-checkbox">
+                <label class="{#custom-control#} custom-checkbox" style="display: block;">
                     <input
                             type="checkbox"
                             value="{{ value }}"
@@ -15,13 +15,13 @@
                             {{ value in field_type.config.disabled ? 'disabled' }}
                             {{ value in field_type.value ? 'checked' }}>
 
-                    <span class="c-indicator"></span>
+                    <span class="{#custom-control-indicator#}"></span>
 
                     {{ trans(option) }}
                 </label>
             {% endfor %}
         {% else %}
-            <label class="c-input c-checkbox">
+            <label class="{#custom-control#} custom-checkbox" style="display: block;">
                 <input
                         type="checkbox"
                         value="{{ value }}"
@@ -30,7 +30,7 @@
                         {{ value in field_type.config.disabled ? 'disabled' }}
                         {{ value in field_type.value ? 'checked' }}>
 
-                <span class="c-indicator"></span>
+                <span class="{#custom-control-indicator#}"></span>
 
                 {{ trans(option) }}
             </label>
