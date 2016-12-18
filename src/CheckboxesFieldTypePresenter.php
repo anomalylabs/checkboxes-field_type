@@ -73,4 +73,14 @@ class CheckboxesFieldTypePresenter extends FieldTypePresenter
 
         return array_intersect_key($options, array_flip($value));
     }
+
+    /**
+     * Return the string value.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return implode(', ', $this->values());
+    }
 }
