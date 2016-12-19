@@ -75,11 +75,11 @@ class CheckboxesFieldTypePresenter extends FieldTypePresenter
     }
 
     /**
-     * Return the string value.
+     * Return the contextual human value.
      *
      * @return string
      */
-    public function __toString()
+    public function __print()
     {
         return implode(', ', $this->values());
     }
