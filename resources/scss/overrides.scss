@@ -1,4 +1,8 @@
 .select2-container {
+    
+    .form-control {
+        height: auto !important;
+    }
 
     &.select2 {
         width: 100% !important;
