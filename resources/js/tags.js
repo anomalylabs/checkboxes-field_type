@@ -1,7 +1,10 @@
-$(document).on('ajaxComplete ready', function () {
+(function (window, document) {
 
-    // Initialize tag inputs.
-    $('select[data-provides="anomaly.field_type.checkboxes"]').each(function () {
-        $(this).select2();
+    let selects = Array.from(
+        document.querySelectorAll('select[data-provides="anomaly.field_type.checkboxes"]:not([data-initialized])')
+    );
+
+    selects.forEach(function ($select) {
+        new Choices($select);
     });
-});
+})(window, document);
