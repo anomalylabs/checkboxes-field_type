@@ -1,6 +1,8 @@
 <?php namespace Anomaly\CheckboxesFieldType;
 
 use Anomaly\CheckboxesFieldType\Command\BuildOptions;
+use Anomaly\CheckboxesFieldType\Handler\Countries;
+use Anomaly\CheckboxesFieldType\Handler\States;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
 /**
@@ -41,7 +43,7 @@ class CheckboxesFieldType extends FieldType
      * @var array
      */
     protected $rules = [
-        'array'
+        'array',
     ];
 
     /**
@@ -50,8 +52,8 @@ class CheckboxesFieldType extends FieldType
      * @var array
      */
     protected $handlers = [
-        'states'    => 'Anomaly\CheckboxesFieldType\Handler\States',
-        'countries' => 'Anomaly\CheckboxesFieldType\Handler\Countries',
+        'states'    => States::class,
+        'countries' => Countries::class,
     ];
 
     /**
@@ -62,7 +64,7 @@ class CheckboxesFieldType extends FieldType
     protected $config = [
         'options' => null,
         'mode'    => 'checkboxes',
-        'handler' => 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeOptions@handle'
+        'handler' => CheckboxesFieldTypeOptions::class,
     ];
 
     /**

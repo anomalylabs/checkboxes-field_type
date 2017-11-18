@@ -1,10 +1,9 @@
 {{ asset_add("styles.css", "anomaly.field_type.checkboxes::scss/choices.scss") }}
-{#{{ asset_add("styles.css", "anomaly.field_type.checkboxes::scss/overrides.scss") }}#}
+{{ asset_add("styles.css", "anomaly.field_type.checkboxes::scss/overrides.scss") }}
 {{ asset_add("scripts.js", "anomaly.field_type.checkboxes::js/choices.min.js") }}
 {{ asset_add("scripts.js", "anomaly.field_type.checkboxes::js/tags.js") }}
 
-<select multiple
-        class="form-control"
+<select
         name="{{ field_type.input_name }}[]"
         data-placeholder="{{ trans(field_type.placeholder) }}"
         {{ html_attributes(field_type.attributes) }}

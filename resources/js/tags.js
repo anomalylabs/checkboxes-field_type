@@ -5,6 +5,9 @@
     );
 
     selects.forEach(function ($select) {
+
+        $select.dataset.initialized = true;
+
         new Choices($select);
     });
 })(window, document);
