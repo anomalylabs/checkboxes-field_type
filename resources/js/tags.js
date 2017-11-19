@@ -1,12 +1,10 @@
 (function (window, document) {
 
     let fields = Array.from(
-        document.querySelectorAll('select[data-provides="anomaly.field_type.checkboxes"]:not([data-initialized])')
+        document.querySelectorAll('select[data-provides="anomaly.field_type.checkboxes"]')
     );
 
     fields.forEach(function (field) {
-
-        field.dataset.initialized = true;
 
         let choices = new Choices(field, {
             removeItemButton: true,
@@ -17,10 +15,10 @@
          * are removed the last option element
          * is not removed from the DOM.
          */
-        field.addEventListener('removeItem', function() {
+        field.addEventListener('removeItem', function (event) {
 
             if (choices.getValue().length == 0) {
-                field.removeChild(field.options[0])
+                event.target.removeChild(event.target.options[0])
             }
 
         }, false);
