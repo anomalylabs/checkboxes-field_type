@@ -17,8 +17,8 @@
      * are removed the last option element		
      * is not removed from the DOM.		
      */
-    let onRemoveItem = function (id, value, label, groupValue) {
-      if (!value && field.options && field.options.length) {
+    let onRemoveItem = function (e) {
+      if (!e.detail.value) {
         field.options.forEach(function (option) {
           field.removeChild(option);
         });
