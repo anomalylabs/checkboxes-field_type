@@ -15,13 +15,15 @@
      * are removed the last option element		
      * is not removed from the DOM.		
      */
-    field.addEventListener('removeItem', function (id, value, label, groupValue) {
+    let onRemoveItem = function (id, value, label, groupValue) {
       if (!value) {
         field.options.forEach(function (option) {
           field.removeChild(option);
         });
       }
-    });
+    };
+    
+    field.addEventListener('removeItem', onRemoveItem);
 
   });
 
