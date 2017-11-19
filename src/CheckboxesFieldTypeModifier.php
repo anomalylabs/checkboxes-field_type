@@ -21,6 +21,10 @@ class CheckboxesFieldTypeModifier extends FieldTypeModifier
      */
     public function modify($value)
     {
+        if (is_string($value) && unserialize($value) !== false) {
+            return $value;
+        }
+
         return serialize((array)$value);
     }
 

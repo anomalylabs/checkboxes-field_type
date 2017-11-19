@@ -1,13 +1,15 @@
 (function (window, document) {
 
-    let selects = Array.from(
+    let fields = Array.from(
         document.querySelectorAll('select[data-provides="anomaly.field_type.checkboxes"]:not([data-initialized])')
     );
 
-    selects.forEach(function ($select) {
+    fields.forEach(function (field) {
 
-        $select.dataset.initialized = true;
+        field.dataset.initialized = true;
 
-        new Choices($select);
+        new Choices(field, {
+            removeItemButton: true,
+        });
     });
 })(window, document);

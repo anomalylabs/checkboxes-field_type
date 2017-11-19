@@ -1,5 +1,6 @@
 {{ asset_add("styles.css", "anomaly.field_type.checkboxes::scss/choices.scss") }}
 {{ asset_add("styles.css", "anomaly.field_type.checkboxes::scss/overrides.scss") }}
+
 {{ asset_add("scripts.js", "anomaly.field_type.checkboxes::js/choices.min.js") }}
 {{ asset_add("scripts.js", "anomaly.field_type.checkboxes::js/tags.js") }}
 
@@ -11,7 +12,9 @@
         {{ field_type.readonly ? 'readonly' }}>
 
     {% for key, title in field_type.options %}
-        <option {{ key in field_type.value ? 'selected' }} value="{{ key }}">{{ title }}</option>
+        <option value="{{ key }}" {{ key in field_type.value ? 'selected' }}>
+            {{ title }}
+        </option>
     {% endfor %}
 
 </select>
