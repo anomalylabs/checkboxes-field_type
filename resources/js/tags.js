@@ -8,8 +8,21 @@
 
         field.dataset.initialized = true;
 
-        new Choices(field, {
+        let choices = new Choices(field, {
             removeItemButton: true,
         });
+
+        /**
+         * Fix an issue where when all options
+         * are removed the last option element
+         * is not removed from the DOM.
+         */
+        field.addEventListener('removeItem', function(event) {
+
+            if (choices.getValue().length == 0) {
+                field.removeChild(field.options[0])
+            }
+
+        }, false);
     });
 })(window, document);
