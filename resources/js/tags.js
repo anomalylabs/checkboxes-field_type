@@ -8,6 +8,8 @@
 
     let choices = new Choices(field, {
       removeItemButton: true,
+      duplicateItems: false,
+      delimiter: field.dataset.delimiter || ',',
     });
 
     /**		
