@@ -25,7 +25,7 @@
       }
     };
     
-    field.addEventListener('removeItem', onRemoveItem);
+    choices.passedElement.addEventListener('removeItem', onRemoveItem);
 
   });
 
