@@ -10,14 +10,17 @@
       removeItemButton: true,
     });
 
+    /**		
+     * Fix an issue where when all options		
+     * are removed the last option element		
+     * is not removed from the DOM.		
+     */
     field.addEventListener('removeItem', function (id, value, label, groupValue) {
-
       if (!value) {
         field.options.forEach(function (option) {
           field.removeChild(option);
         });
       }
-        
     });
 
   });
