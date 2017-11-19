@@ -16,7 +16,7 @@
      * is not removed from the DOM.		
      */
     let onRemoveItem = function (id, value, label, groupValue) {
-      if (!value) {
+      if (!value && field.options && field.options.length) {
         field.options.forEach(function (option) {
           field.removeChild(option);
         });
