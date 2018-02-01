@@ -11,13 +11,13 @@
 
     .select2-override {
         height: 47px;
-        border-radius: .1rem !default;
+        border-radius: .1rem;
         border: 1px solid rgba(0, 0, 0, .15);
     }
 
     &.select2-container--focus {
         .select2-selection--multiple {
-            border-color: rgba(0,0,0,.15) !default !important;
+            border-color: rgba(0,0,0,.15) !important;
         }
     }
 
@@ -48,7 +48,7 @@
             margin-top: 8px;
             padding-left: 10px;
             border-radius: 3px;
-            background: #11bef6 !default;
+            background: #11bef6;
 
             span {
                 color: #ffffff;
@@ -71,14 +71,14 @@
     }
 
     .select2-dropdown {
-        border-color: rgba(0,0,0,.15) !default;
+        border-color: rgba(0,0,0,.15);
 
         .select2-search__field {
-            border: 1px solid rgba(0,0,0,.15) !default;
+            border: 1px solid rgba(0,0,0,.15);
         }
 
         .select2-results .select2-results__option--highlighted {
-            background-color: #373a3c !default;
+            background-color: #373a3c;
         }
     }
 }
