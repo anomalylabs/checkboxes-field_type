@@ -36,10 +36,6 @@ class BuildOptions
             $handler = array_get($this->fieldType->getHandlers(), $handler);
         }
 
-        if (is_string($handler) && !str_contains($handler, '@')) {
-            $handler .= '@handle';
-        }
-
-        $container->call($handler, ['fieldType' => $this->fieldType]);
+        $container->call($handler, ['fieldType' => $this->fieldType], 'handle');
     }
 }
