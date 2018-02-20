@@ -19,7 +19,7 @@
 
                         <span class="{#custom-control-indicator#}"></span>
 
-                        {{ trans(option) }}
+                        {{ trans(option)|raw }}
                     </label>
                 {% endfor %}
             </p>
@@ -35,7 +35,7 @@
 
                 <span class="{#custom-control-indicator#}"></span>
 
-                {{ trans(option) }}
+                {{ trans(option)|raw }}
             </label>
         {% endif %}
 
