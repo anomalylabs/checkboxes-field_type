@@ -183,14 +183,14 @@ class CheckboxesFieldType extends FieldType
     {
         if (isset($config['options']) && is_array($config['options'])) {
 
-            array_walk(
-                $config['options'],
-                function (&$value, $key) {
-                    return $value = $key . ': ' . $value;
-                }
-            );
-
-            $config['options'] = implode("\n", $config['options']);
+            $config['options'] = implode("\n", array_reduce(
+                array_keys($config['options']),
+                function ($acc, $cur) use ($config) {
+                    $acc[] = "{$cur}: {$config['options'][$cur]}";
+                    return $acc;
+                },
+                []
+            ));
         }
     }
 
