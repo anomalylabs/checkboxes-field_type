@@ -75,20 +75,6 @@ class CheckboxesFieldType extends FieldType
     protected $options = null;
 
     /**
-     * Get the config.
-     *
-     * @return array
-     */
-    public function getConfig()
-    {
-        $config = parent::getConfig();
-
-        $this->implodeOptions($config);
-
-        return $config;
-    }
-
-    /**
      * Get the dropdown options.
      *
      * @return array
@@ -183,14 +169,14 @@ class CheckboxesFieldType extends FieldType
     {
         if (isset($config['options']) && is_array($config['options'])) {
 
-            $config['options'] = implode("\n", array_reduce(
-                array_keys($config['options']),
-                function ($carry, $item) use ($config) {
-                    $carry[] = "{$item}: {$config['options'][$item]}";
-                    return $carry;
-                },
-                []
-            ));
+            array_walk(
+                $config['options'],
+                function (&$value, $key) {
+                    return $value = $key . ': ' . $value;
+                }
+            );
+
+            $config['options'] = implode("\n", $config['options']);
         }
     }
 
