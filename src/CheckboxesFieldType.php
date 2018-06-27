@@ -185,9 +185,9 @@ class CheckboxesFieldType extends FieldType
 
             $config['options'] = implode("\n", array_reduce(
                 array_keys($config['options']),
-                function ($acc, $cur) use ($config) {
-                    $acc[] = "{$cur}: {$config['options'][$cur]}";
-                    return $acc;
+                function ($carry, $item) use ($config) {
+                    $carry[] = "{$item}: {$config['options'][$item]}";
+                    return $carry;
                 },
                 []
             ));
