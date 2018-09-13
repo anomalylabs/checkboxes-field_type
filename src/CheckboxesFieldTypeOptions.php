@@ -19,7 +19,7 @@ class CheckboxesFieldTypeOptions
         $options = array_get($fieldType->getConfig(), 'options', []);
 
         if (is_string($options)) {
-            $options = $this->dispatch(new ParseOptions($options));
+            $options = $this->dispatch(new ParseOptions($fieldType, $options));
         }
 
         if ($options instanceof Collection && $options->isEmpty()) {

@@ -28,6 +28,9 @@ return [
             'min' => 1,
         ],
     ],
+    'separator'     => [
+        'type' => 'anomaly.field_type.text',
+    ],
     'default_value' => [
         'type' => 'anomaly.field_type.tags',
     ],

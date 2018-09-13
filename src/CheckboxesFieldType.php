@@ -62,9 +62,10 @@ class CheckboxesFieldType extends FieldType
      * @var array
      */
     protected $config = [
-        'options' => null,
-        'mode'    => 'checkboxes',
-        'handler' => CheckboxesFieldTypeOptions::class,
+        'separator' => ':',
+        'options'   => null,
+        'mode'      => 'checkboxes',
+        'handler'   => CheckboxesFieldTypeOptions::class,
     ];
 
     /**
