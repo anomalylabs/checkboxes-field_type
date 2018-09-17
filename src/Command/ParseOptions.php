@@ -1,7 +1,12 @@
 <?php namespace Anomaly\CheckboxesFieldType\Command;
 
-use Anomaly\CheckboxesFieldType\CheckboxesFieldType;
-
+/**
+ * Class ParseOptions
+ *
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
+ */
 class ParseOptions
 {
 
@@ -13,23 +18,13 @@ class ParseOptions
     protected $options;
 
     /**
-     * The field type instance.
-     *
-     * @var CheckboxesFieldType
-     */
-    protected $fieldType;
-
-    /**
      * Create a new ParseOptions instance.
      *
-     * @param CheckboxesFieldType $fieldType
      * @param $options
      */
-    public function __construct(CheckboxesFieldType $fieldType, $options)
+    public function __construct($options)
     {
-
-        $this->options   = $options;
-        $this->fieldType = $fieldType;
+        $this->options = $options;
     }
 
     /**
@@ -41,23 +36,35 @@ class ParseOptions
     {
         $options = [];
 
-        if (!$separator = trim($this->fieldType->config('separator', ':'))) {
-            $separator = ':';
-        }
+        $group = null;
 
         foreach (explode("\n", $this->options) as $option) {
 
+            // Find option [groups]
+            if (starts_with($option, '[')) {
+
+                $group = trans(substr(trim($option), 1, -1));
+
+                $options[$group] = [];
+
+                continue;
+            }
+
             // Split on the first ":"
-            if (str_is('*' . $separator . '*', $option)) {
-                $option = explode($separator, $option, 2);
+            if (str_is('*:*', $option)) {
+                $option = explode(':', $option, 2);
             } else {
                 $option = [$option, $option];
             }
 
-            $key   = array_shift($option);
-            $value = $option ? array_shift($option) : $key;
+            $key   = ltrim(trim(array_shift($option)));
+            $value = ltrim(trim($option ? array_shift($option) : $key));
 
-            $options[ltrim(trim($key, "\r\n"), "\r\n")] = ltrim(trim($value, "\r\n"), "\r\n");
+            if ($group) {
+                $options[$group][$key] = $value;
+            } else {
+                $options[$key] = $value;
+            }
         }
 
         return $options;
