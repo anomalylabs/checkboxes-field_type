@@ -13,6 +13,8 @@
                                 value="{{ value }}"
                                 name="{{ field_type.input_name }}[]"
                                 {{ field_type.disabled ? 'disabled' }}
+                                {{ field_type.readonly ? 'readonly' }}
+                                {{ field_type.readonly ? 'onclick="return false;"' }}
                                 {{ value in field_type.config.disabled ? 'disabled' }}
                                 {{ value in field_type.config.checked ? 'checked' }}
                                 {{ value in field_type.value ? 'checked' }}>
