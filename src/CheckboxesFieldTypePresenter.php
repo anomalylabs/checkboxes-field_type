@@ -32,26 +32,6 @@ class CheckboxesFieldTypePresenter extends FieldTypePresenter
     }
 
     /**
-     * Return the number of options.
-     *
-     * @return int
-     */
-    public function total()
-    {
-        return count($this->object->getOptions());
-    }
-
-    /**
-     * Return the option keys.
-     *
-     * @return array
-     */
-    public function keys()
-    {
-        return array_keys($this->selections());
-    }
-
-    /**
      * Return the option values.
      *
      * @return array
@@ -72,6 +52,26 @@ class CheckboxesFieldTypePresenter extends FieldTypePresenter
         $options = $this->object->getOptions();
 
         return array_intersect_key($options, array_flip($value));
+    }
+
+    /**
+     * Return the number of options.
+     *
+     * @return int
+     */
+    public function total()
+    {
+        return count($this->object->getOptions());
+    }
+
+    /**
+     * Return the option keys.
+     *
+     * @return array
+     */
+    public function keys()
+    {
+        return array_keys($this->selections());
     }
 
     /**

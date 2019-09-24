@@ -83,7 +83,7 @@ class CheckboxesFieldType extends FieldType
     public function getOptions()
     {
         if ($this->options === null) {
-            $this->dispatch(new BuildOptions($this));
+            dispatch_now(new BuildOptions($this));
         }
 
         return $this->options;
@@ -169,7 +169,6 @@ class CheckboxesFieldType extends FieldType
     protected function implodeOptions(array &$config)
     {
         if (isset($config['options']) && is_array($config['options'])) {
-
             array_walk(
                 $config['options'],
                 function (&$value, $key) {
@@ -180,5 +179,4 @@ class CheckboxesFieldType extends FieldType
             $config['options'] = implode("\n", $config['options']);
         }
     }
-
 }

@@ -27,7 +27,6 @@ class ParseOptions
      */
     public function __construct(CheckboxesFieldType $fieldType, $options)
     {
-
         $this->options   = $options;
         $this->fieldType = $fieldType;
     }
@@ -51,7 +50,6 @@ class ParseOptions
 
             // Find option [groups]
             if (starts_with($option, '[')) {
-
                 $group = trans(substr(trim($option), 1, -1));
 
                 $options[$group] = [];

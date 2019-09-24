@@ -19,7 +19,6 @@ class CheckboxesFieldTypeServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $singletons = [
-        'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeModifier' => 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeModifier'
+        'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeModifier' => 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeModifier',
     ];
-
 }
