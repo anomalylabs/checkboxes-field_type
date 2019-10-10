@@ -1,24 +1,24 @@
-<?php namespace Anomaly\CheckboxesFieldType;
+<?php
+
+namespace Anomaly\CheckboxesFieldType;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Illuminate\Contracts\Support\DeferrableProvider;
 
 /**
  * Class CheckboxesFieldTypeServiceProvider
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\CheckboxesFieldType
+ * @link   http://pyrocms.com/
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
-class CheckboxesFieldTypeServiceProvider extends AddonServiceProvider
+class CheckboxesFieldTypeServiceProvider extends AddonServiceProvider implements DeferrableProvider
 {
 
     /**
-     * The singleton bindings.
-     *
-     * @var array
+     * Return the provided services.
      */
-    protected $singletons = [
-        'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeModifier' => 'Anomaly\CheckboxesFieldType\CheckboxesFieldTypeModifier',
-    ];
+    public function provides()
+    {
+        return [CheckboxesFieldType::class];
+    }
 }
