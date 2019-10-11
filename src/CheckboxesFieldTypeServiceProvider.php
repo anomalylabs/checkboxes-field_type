@@ -19,6 +19,6 @@ class CheckboxesFieldTypeServiceProvider extends AddonServiceProvider implements
      */
     public function provides()
     {
-        return [CheckboxesFieldType::class];
+        return [CheckboxesFieldType::class, 'anomaly.field_type.checkboxes'];
     }
 }
