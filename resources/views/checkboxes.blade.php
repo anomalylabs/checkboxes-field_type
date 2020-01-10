@@ -18,7 +18,7 @@
                             {{-- {{ value in field_type.value ? 'checked' }} --}}
                             >
 
-                    <span class="{#custom-control-indicator#}"></span>
+                    <span class="{!! $value !!}"></span>
 
                     {!! $key !!}
                 </label>
@@ -35,7 +35,7 @@
                         {{ value in field_type.value ? 'checked' }} --}}
                         >
 
-                <span class="{#custom-control-indicator#}">{!! $$key !!}</span>
+                <span class="{!! $key !!}">{!! $value !!}</span>
             </label>
         @endif
     @endforeach

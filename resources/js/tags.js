@@ -1,4 +1,4 @@
-(function (window, document) {
+(function () {
 
     let fields = Array.prototype.slice.call(
         document.querySelectorAll('select[data-provides="anomaly.field_type.checkboxes"]')
@@ -12,4 +12,4 @@
         });
     });
 
-})(window, document);
+});
