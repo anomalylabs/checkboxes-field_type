@@ -1,4 +1,6 @@
-<?php namespace Anomaly\CheckboxesFieldType;
+<?php
+
+namespace Anomaly\CheckboxesFieldType;
 
 use Anomaly\CheckboxesFieldType\Command\ParseOptions;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
@@ -27,7 +29,7 @@ class CheckboxesFieldTypeOptions
 
         if ($options instanceof Collection && is_object($first = $options->first())) {
             if ($first instanceof EntryInterface) {
-                $value = $first->getTitleName();
+                $value = $first->stream()->getTitleColumn();
             } else {
                 $value = 'id';
             }
