@@ -29,7 +29,7 @@ class CheckboxesFieldTypeOptions
 
         if ($options instanceof Collection && is_object($first = $options->first())) {
             if ($first instanceof EntryInterface) {
-                $value = $first->stream()->getTitleColumn();
+                $value = $first->stream()->title_column;
             } else {
                 $value = 'id';
             }
