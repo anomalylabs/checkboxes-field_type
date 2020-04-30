@@ -1,4 +1,6 @@
-<?php namespace Anomaly\CheckboxesFieldType;
+<?php
+
+namespace Anomaly\CheckboxesFieldType;
 
 use Anomaly\CheckboxesFieldType\Command\BuildOptions;
 use Anomaly\CheckboxesFieldType\Handler\Countries;
@@ -42,7 +44,7 @@ class CheckboxesFieldType extends FieldType
      *
      * @var array
      */
-    protected $rules = [
+    public $rules = [
         'array',
     ];
 
