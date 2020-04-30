@@ -63,7 +63,7 @@ class CheckboxesFieldType extends FieldType
      *
      * @var array
      */
-    protected $config = [
+    public $config = [
         'separator' => ':',
         'options'   => null,
         'mode'      => 'checkboxes',
