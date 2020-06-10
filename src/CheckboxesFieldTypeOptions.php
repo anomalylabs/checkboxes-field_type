@@ -2,9 +2,10 @@
 
 namespace Anomaly\CheckboxesFieldType;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Anomaly\CheckboxesFieldType\Command\ParseOptions;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
-use Illuminate\Support\Collection;
 
 class CheckboxesFieldTypeOptions
 {
@@ -17,7 +18,7 @@ class CheckboxesFieldTypeOptions
      */
     public function handle(CheckboxesFieldType $fieldType)
     {
-        $options = array_get($fieldType->getConfig(), 'options', []);
+        $options = Arr::get($fieldType->getConfig(), 'options', []);
 
         if (is_string($options)) {
             $options = dispatch_now(new ParseOptions($fieldType, $options));

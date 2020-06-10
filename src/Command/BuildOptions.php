@@ -1,5 +1,6 @@
 <?php namespace Anomaly\CheckboxesFieldType\Command;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Container\Container;
 use Anomaly\CheckboxesFieldType\CheckboxesFieldType;
@@ -37,10 +38,10 @@ class BuildOptions
      */
     public function handle(Container $container)
     {
-        $handler = array_get($this->fieldType->getConfig(), 'handler');
+        $handler = Arr::get($this->fieldType->getConfig(), 'handler');
 
         if (!class_exists($handler) && !Str::contains($handler, '@')) {
-            $handler = array_get($this->fieldType->getHandlers(), $handler);
+            $handler = Arr::get($this->fieldType->getHandlers(), $handler);
         }
 
         $container->call($handler, ['fieldType' => $this->fieldType], 'handle');
