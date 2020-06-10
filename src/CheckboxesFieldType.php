@@ -2,9 +2,10 @@
 
 namespace Anomaly\CheckboxesFieldType;
 
-use Anomaly\CheckboxesFieldType\Command\BuildOptions;
-use Anomaly\CheckboxesFieldType\Handler\Countries;
+use Illuminate\Support\Arr;
 use Anomaly\CheckboxesFieldType\Handler\States;
+use Anomaly\CheckboxesFieldType\Handler\Countries;
+use Anomaly\CheckboxesFieldType\Command\BuildOptions;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
 /**
@@ -123,11 +124,11 @@ class CheckboxesFieldType extends FieldType
     {
         $rules = parent::getRules();
 
-        if ($min = array_get($this->getConfig(), 'min')) {
+        if ($min = Arr::get($this->getConfig(), 'min')) {
             $rules[] = 'min:' . $min;
         }
 
-        if ($max = array_get($this->getConfig(), 'max')) {
+        if ($max = Arr::get($this->getConfig(), 'max')) {
             $rules[] = 'max:' . $max;
         }
 
@@ -141,7 +142,7 @@ class CheckboxesFieldType extends FieldType
      */
     public function isRequired()
     {
-        if ((!$required = parent::isRequired()) && array_get($this->getConfig(), 'min')) {
+        if ((!$required = parent::isRequired()) && Arr::get($this->getConfig(), 'min')) {
             return true;
         }
 
