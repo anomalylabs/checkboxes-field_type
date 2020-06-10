@@ -1,16 +1,9 @@
 <?php namespace Anomaly\CheckboxesFieldType\Command;
 
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Container\Container;
 use Anomaly\CheckboxesFieldType\CheckboxesFieldType;
 
-/**
- * Class BuildOptions
- *
- * @link   http://pyrocms.com/
- * @author Ryan Thompson <ryan@pyrocms.com>
- */
 class BuildOptions
 {
 
@@ -40,7 +33,7 @@ class BuildOptions
     {
         $handler = Arr::get($this->fieldType->getConfig(), 'handler');
 
-        if (!class_exists($handler) && !Str::contains($handler, '@')) {
+        if (!class_exists($handler) && !str_contains($handler, '@')) {
             $handler = Arr::get($this->fieldType->getHandlers(), $handler);
         }
 
