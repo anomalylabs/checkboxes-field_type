@@ -83,7 +83,7 @@ class CheckboxesFieldType extends FieldType
     public function getOptions()
     {
         if ($this->options === null) {
-            $this->dispatch(new BuildOptions($this));
+            dispatch_sync(new BuildOptions($this));
         }
 
         return $this->options;

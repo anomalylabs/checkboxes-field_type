@@ -2,13 +2,10 @@
 
 use Anomaly\CheckboxesFieldType\Command\ParseOptions;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Collection;
 
 class CheckboxesFieldTypeOptions
 {
-    use DispatchesJobs;
-
     /**
      * Handle the select options.
      *
@@ -19,7 +16,7 @@ class CheckboxesFieldTypeOptions
         $options = array_get($fieldType->getConfig(), 'options', []);
 
         if (is_string($options)) {
-            $options = $this->dispatch(new ParseOptions($fieldType, $options));
+            $options = dispatch_sync(new ParseOptions($fieldType, $options));
         }
 
         if ($options instanceof Collection && $options->isEmpty()) {
