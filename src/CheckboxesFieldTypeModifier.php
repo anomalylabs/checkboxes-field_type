@@ -21,7 +21,7 @@ class CheckboxesFieldTypeModifier extends FieldTypeModifier
      */
     public function modify($value)
     {
-        if (is_string($value) && unserialize($value) !== false) {
+        if (is_string($value) && is_array(unserialize($value, ['allowed_classes' => false]))) {
             return $value;
         }
 
@@ -44,6 +44,6 @@ class CheckboxesFieldTypeModifier extends FieldTypeModifier
             return $value;
         }
 
-        return (array)unserialize($value);
+        return (array)unserialize($value, ['allowed_classes' => false]);
     }
 }
